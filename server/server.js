@@ -4,6 +4,10 @@ const routes = require("./routes/index");
 
 app.use(express.json());
 
+//To access from the other port
+const cors = require('cors');
+app.use(cors());
+
 //Routing is controller of API
 app.use("/api", routes);  // "/api" 경로 하위에 설정된 모든 라우팅을 처리
 
