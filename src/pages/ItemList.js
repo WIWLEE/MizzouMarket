@@ -18,7 +18,6 @@ function ItemList() {
    const [loading, setLoading] = useState(true);
    const [error, setError] = useState(null);
 
-   // 컴포넌트가 마운트될 때 데이터를 가져오는 함수
    useEffect(() => {
       // API로부터 데이터 가져오기
       axios
@@ -32,9 +31,7 @@ function ItemList() {
             setLoading(false); // 로딩 상태 업데이트
          });
    }, []); // 빈 배열을 넣어 한 번만 실행되게 함
-
-
-    // 특정 카테고리 데이터 가져오기
+   
     const getAndLoadItemByCategory = (category) => {
       setLoading(true); // 새로운 요청 전 로딩 상태로 전환
       axios
@@ -67,13 +64,13 @@ const handleSearch = (query) => {
 };
 
 
-   // if (loading) {
-   //    return <p>Loading items...</p>; // 데이터 로딩 중 메시지
-   // }
+   if (loading) {
+      return <p>Loading items...!</p>; // 데이터 로딩 중 메시지
+   }
 
-   // if (error) {
-   //    return <p>{error}</p>; // 에러 발생 시 메시지
-   // }
+   if (error) {
+      return <p>{error}</p>; // 에러 발생 시 메시지
+   }
 
    return (
       <div>

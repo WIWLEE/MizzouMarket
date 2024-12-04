@@ -5,7 +5,6 @@ function VerticalBar(){
     const navigate = useNavigate();
     return (    
         <div>
-            <VerticalBar />
             <div id="bar">
                 <button id="homeButton" onClick = {()=>{
                         navigate("/");
