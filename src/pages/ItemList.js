@@ -65,7 +65,7 @@ const handleSearch = (query) => {
 
 
    if (loading) {
-      return <p>Loading items...!</p>; // 데이터 로딩 중 메시지
+      return <p>Loading items</p>; // 데이터 로딩 중 메시지
    }
 
    if (error) {

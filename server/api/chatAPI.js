@@ -5,7 +5,6 @@ const router = require("express").Router();
 router.post("/", function(req, res) { 
 
    const chatroom = req.body; 
-   console.log(chatroom);
    ChatRoom.createRoom(chatroom, function(err, newChatroom) {
       if (err) {
          res.status(400).send(err);

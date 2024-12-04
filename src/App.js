@@ -5,6 +5,7 @@ import ItemDetail from './pages/ItemDetail';
 import AddItem from './pages/registerItem';
 import ChatRoom from './pages/chatRoom';
 import ChatRoomList from './pages/chatRoomList';
+import MyPage from './pages/myPage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/AddItem" element={<AddItem />} />
           <Route path="/ChatRoom/:Chatroom_id/:Item_id" element={<ChatRoom />} />
           <Route path="/ChatRoomList" element={<ChatRoomList />}/>
+          <Route path="/MyPage" element={<MyPage />}/>
         </Routes>
       </div>
     </Router>

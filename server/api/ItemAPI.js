@@ -4,11 +4,9 @@ const router = require("express").Router();
 // Get list of all items in the database, when client use get /api/items
 router.get("/", function(req, res) { 
    Item.getAllItems(function(err, items) {
-      console.log("!");
       if (err) {
          res.status(400).send(err);
       } else {
-         console.log(items);
          res.json(items);
       }
    });
