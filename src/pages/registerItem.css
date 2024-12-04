@@ -1,0 +1,75 @@
+.center{
+    display : flex;
+    justify-items: center;
+}
+
+#back-register {
+    background-color: white;
+    display: flex;           /* 플렉스박스 활성화 */
+    flex-direction: column;  /* 요소들을 세로로 배치 */
+    align-items: center;     /* 가로 중앙 정렬 */
+    justify-content: center; /* 세로 중앙 정렬 */
+    min-height: 100vh;       /* 화면 높이를 100%로 설정 */
+  }
+
+
+#formCenter{
+    display: flex;           /* 플렉스박스 활성화 */
+    justify-content: center;   
+    font-size : 20px;
+    margin-top : 20px;
+}
+
+.basicButton{
+    padding: 8px 16px;
+    margin-left: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.basicButton:hover {
+    background-color: #0056b3;
+}
+
+input {
+    margin-left : 30px;
+    padding-bottom : 30px;
+    border: none; 
+    border-bottom: 1px solid rgb(91, 85, 85); 
+    outline: none; 
+    width: 80vh;
+    padding: 8px 0;
+    font-size: 16px;
+}
+
+input:focus {
+    border-bottom: 2px solid #007BFF; /* 포커스 시 바텀 라인 색 변경 */
+}
+
+/* CategoryButton.css */
+
+.category-button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .category-button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .category-button.selected {
+    background-color: #4CAF50;  /* 선택된 카테고리 색상 */
+    color: white;  /* 선택된 카테고리 텍스트 색상 */
+  }
+  
+  .category-button:focus {
+    outline: none;
+  }
+  

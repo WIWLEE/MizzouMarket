@@ -1,0 +1,89 @@
+/* 전체 컨테이너 */
+#item-detail-container {
+    display: flex;
+    background-color: #f9f9f9;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+}
+
+
+/* 상세 내용 컨테이너 */
+#item-detail-content {
+    left : 100px;
+    position : relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 상세 박스 */
+#item-detail-box {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* 이미지 스타일 */
+#item-image {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* 텍스트 및 소유자 정보 */
+#item-details h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+#item-details p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+/* 소유자 섹션 */
+#owner-info {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#owner-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 2px solid #ddd;
+}
+
+#owner-info p {
+    font-size: 1rem;
+    color: #333;
+}
+
+.chat__button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top : 20px;
+}
+
+.chat__button:hover {
+    background-color: #218838;
+}
