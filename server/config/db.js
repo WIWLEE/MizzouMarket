@@ -9,7 +9,7 @@ const db = mysql.createConnection({
    database: "MIZZOUMARKET"
 });
 
-// MySQL 연결 확인
+// MySQL connection confirm
 db.connect(function(err) {
    if (err) {
       console.error("Error connecting to MySQL: " + err.stack);

@@ -13,27 +13,28 @@ import "./ItemList.css";
 function ItemList() {
 
    const navigate = useNavigate();
+   const current_user_id = 1;
 
    const [items, setItems] = useState([]);
    const [loading, setLoading] = useState(true);
    const [error, setError] = useState(null);
 
    useEffect(() => {
-      // API로부터 데이터 가져오기
+  
       axios
          .get("http://localhost:3001/api/items")
          .then((response) => {
-            setItems(response.data); // 아이템 데이터를 상태에 저장
-            setLoading(false); // 로딩 상태 업데이트
+            setItems(response.data); 
+            setLoading(false); 
          })
          .catch((err) => {
-            setError("Error fetching items"); // 에러 메시지 설정
-            setLoading(false); // 로딩 상태 업데이트
+            setError("Error fetching items"); 
+            setLoading(false); 
          });
-   }, []); // 빈 배열을 넣어 한 번만 실행되게 함
+   }, []); 
    
     const getAndLoadItemByCategory = (category) => {
-      setLoading(true); // 새로운 요청 전 로딩 상태로 전환
+      setLoading(true); 
       axios
          .get(`http://localhost:3001/api/items/${category}`)
          .then((response) => {
@@ -46,13 +47,13 @@ function ItemList() {
          });
    };
 
-   //검색기능
-// 검색 기능 수정
+
+//Search function
 const handleSearch = (query) => {
    
    setLoading(true);
    axios
-      .get(`http://localhost:3001/api/items/search/search?query=${query}`)  // 경로 수정
+      .get(`http://localhost:3001/api/items/search/search?query=${query}`)  
       .then((response) => {
          setItems(response.data);
          setLoading(false);
@@ -65,11 +66,11 @@ const handleSearch = (query) => {
 
 
    if (loading) {
-      return <p>Loading items</p>; // 데이터 로딩 중 메시지
+      return <p>Loading items</p>; 
    }
 
    if (error) {
-      return <p>{error}</p>; // 에러 발생 시 메시지
+      return <p>{error}</p>; 
    }
 
    return (
@@ -89,6 +90,18 @@ const handleSearch = (query) => {
                <CategoryButton 
                   category = "Clothes"
                   onClick = {() => getAndLoadItemByCategory("CLOTHES")}
+               />
+               <CategoryButton 
+                  category = "Refrigerator"
+                  onClick = {() => getAndLoadItemByCategory("REFRIGERATOR")}
+               />
+               <CategoryButton 
+                  category = "Laptop"
+                  onClick = {() => getAndLoadItemByCategory("LAPTOP")}
+               />
+               <CategoryButton 
+                  category = "ETC"
+                  onClick = {() => getAndLoadItemByCategory("ETC")}
                />
             </div>
             <SearchBar onSearch={handleSearch} />
