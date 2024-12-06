@@ -49,7 +49,18 @@ router.get("/get/:itemId", function(req, res){
    })
 })
 
-// 라우터 수정
+router.get("/get2/:itemId", function(req, res){
+   const itemId = req.params.itemId;
+   Item.getAItemByIdIncludingNonSold(itemId, function(err, items){
+      if (err) {
+         res.status(400).send(err);
+      } else {
+         res.json(items);
+      }
+   })
+})
+
+
 router.get("/search/search", function(req, res){
    const searchedValue = req.query.query; // 검색어
    Item.searchItem(searchedValue, function(err, items){

@@ -17,7 +17,7 @@ function RegisterItem() {
     Category : [],
   });
 
-   const [selectedCategories, setSelectedCategories] = useState(new Set()); // 선택된 카테고리 상태 관리
+   const [selectedCategories, setSelectedCategories] = useState(new Set()); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -33,9 +33,9 @@ function RegisterItem() {
     e.preventDefault();
     const updatedCategories = new Set(selectedCategories);
     if (updatedCategories.has(category)) {
-      updatedCategories.delete(category); // 이미 선택된 카테고리는 삭제
+      updatedCategories.delete(category); 
     } else {
-      updatedCategories.add(category); // 선택되지 않은 카테고리는 추가
+      updatedCategories.add(category); 
     }
     setSelectedCategories(updatedCategories);
     setFormData({ ...formData, Category: Array.from(updatedCategories) });
@@ -123,6 +123,21 @@ function RegisterItem() {
         category="Clothes"
         onClick={(e) => handleCategoryClick("CLOTHES", e)}
         isSelected={selectedCategories.has("CLOTHES")}
+        />
+         <CategoryButton
+        category="Refrigerator"
+        onClick={(e) => handleCategoryClick("REFRIGERATOR", e)}
+        isSelected={selectedCategories.has("REFRIGERATOR")}
+        />
+         <CategoryButton
+        category="Laptop"
+        onClick={(e) => handleCategoryClick("LAPTOP", e)}
+        isSelected={selectedCategories.has("LAPTOP")}
+        />
+         <CategoryButton
+        category="ETC"
+        onClick={(e) => handleCategoryClick("ETC", e)}
+        isSelected={selectedCategories.has("ETC")}
         />
         </div>
         <div id="formCenter">

@@ -9,6 +9,7 @@ import ChatRoomCard from '../components/ChatRoomCard';
 function ChatRoomList() {
 
     const navigate = useNavigate();
+    const current_user_id = 1;
 
     const [chatrooms, setChatrooms] = useState([]);
 
@@ -17,13 +18,12 @@ function ChatRoomList() {
     axios
         .get("http://localhost:3001/api/chatRoom")
         .then((response) => {
-            setChatrooms(response.data); // 아이템 데이터를 상태에 저장
+            setChatrooms(response.data); 
         })
         .catch((err) => {
             console.log("??");
-            alert("??");
         });
-    }, []); // 빈 배열을 넣어 한 번만 실행되게 함
+    }, []); 
 
     return (
         <div>

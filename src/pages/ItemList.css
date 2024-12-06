@@ -17,10 +17,10 @@ h1 {
 }
 
 #bar {
-    height: 100vh; /* 화면 전체 높이 */
+    height: 100vh; 
     width: 110px; 
     background-color: beige;
-    position: fixed; /* 화면 왼쪽에 고정 */
+    position: fixed;
     top: 0;
     left: 0;
 }
@@ -74,11 +74,11 @@ h1 {
 }
 
 #categoryBlock {
-    display: flex; /* Flexbox 설정 */
-    justify-content: center; /* 수평 중앙 정렬 */
-    align-items: center; /* 수직 중앙 정렬 */
-    width: 100%; /* 부모 요소에 맞춤 */
-    height: 100%; /* 필요 시 높이 추가 */
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    width: 100%; 
+    height: 100%; 
 }
 
 /* ItemCard */
@@ -94,9 +94,8 @@ h1 {
     background-color: #fff;
     transition: transform 0.3s ease;
 
-    flex: 1 1 calc(25% - 16px); /* 한 줄에 4개, gap 계산 */
-    max-width: calc(25% - 16px); /* 한 줄에 4개 */
-    /* box-sizing: border-box;  */
+    flex: 1 1 calc(25% - 16px); 
+    max-width: calc(25% - 16px); 
 
 }
 
@@ -142,9 +141,9 @@ h1 {
 
 #cardBox {
     display: flex;
-    flex-wrap: wrap; /* 여러 줄로 정렬 가능 */
-    gap: 16px; /* 카드 사이 간격 */
-    justify-content: center; /* 중앙 정렬 */
+    flex-wrap: wrap; 
+    gap: 16px;
+    justify-content: center; 
 }
 
 

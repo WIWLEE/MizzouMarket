@@ -19,7 +19,7 @@ function ItemDetail() {
    const [error, setError] = useState(null);
 
    useEffect(() => {
-    setLoading(true); // 요청 전 로딩 상태 설정
+    setLoading(true); //Loading before fetching
     axios
        .get(`http://localhost:3001/api/items/get/${id}`)
        .then((response) => {
@@ -32,14 +32,14 @@ function ItemDetail() {
           setError("Error fetching item details");
           setLoading(false);
        });
- }, []); // id가 변경될 때마다 다시 요청
+ }, []); 
 
 
  const createChatRoom = (item_id, buyer_id, seller_id, item_description) => {
     fetch(`http://localhost:3001/api/chatRoom`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json', // JSON 형식으로 데이터 전송
+            'Content-Type': 'application/json',
         },
         body: JSON.stringify({Item_id: `${item_id}`, Buyer_id: `${buyer_id}`, Room_name: `Room_${item_description}` , Seller_id : `${seller_id}`}),
     })
@@ -55,7 +55,7 @@ function ItemDetail() {
             alert("ChatRoom Created");
         })
         .catch(error => {
-            console.error(error); // 오류를 콘솔에 기록
+            console.error(error); 
             alert('Create failed');
         });
 };

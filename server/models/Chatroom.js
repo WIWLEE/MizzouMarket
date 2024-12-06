@@ -18,12 +18,12 @@ const Chatroom = {
   
       db.query(query1, params1, function(err, result1) {
           if (err) {
-              return callback(err, null); // 첫 번째 쿼리에서 에러 발생 시 처리
+              return callback(err, null); // first query error
           }
   
           db.query(query2, params2, function(err, result2) {
             if (err) {
-               return callback(err, null); // 두 번째 쿼리에서 에러 발생 시 처리
+               return callback(err, null); // second query error
             }
 
             callback(null, result1);
@@ -47,6 +47,23 @@ const Chatroom = {
       }
    });
 },
+
+   getChatroomById : function(chatRoomId, callback){
+      const query = `SELECT Chatting_room.Room_id, Chatting_room.Room_name, Chatting_room.Item_id, Chatting_room.Buyer_id, Chatting_room2.Seller_id
+      FROM Chatting_room
+      JOIN Chatting_room2
+      ON Chatting_room.Item_id = Chatting_room2.Item_id
+      WHERE Chatting_room.Room_id = ?;`
+
+   db.query(query, [chatRoomId.id], function(err, results) {
+      if (err) {
+         callback(err, null);
+      } else {
+         callback(null, results)
+      }
+   });
+   }
+
 }  
 
 module.exports = Chatroom;

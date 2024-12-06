@@ -1,4 +1,3 @@
-/* 전체 컨테이너 */
 #item-detail-container {
     display: flex;
     background-color: #f9f9f9;
@@ -7,7 +6,6 @@
 }
 
 
-/* 상세 내용 컨테이너 */
 #item-detail-content {
     left : 100px;
     position : relative;
@@ -17,7 +15,7 @@
     align-items: center;
 }
 
-/* 상세 박스 */
+
 #item-detail-box {
     background-color: #fff;
     border-radius: 12px;
@@ -31,7 +29,7 @@
     text-align: center;
 }
 
-/* 이미지 스타일 */
+
 #item-image {
     width: 100%;
     max-width: 400px;
@@ -39,7 +37,7 @@
     margin-bottom: 20px;
 }
 
-/* 텍스트 및 소유자 정보 */
+
 #item-details h1 {
     font-size: 2rem;
     margin-bottom: 15px;
@@ -52,7 +50,7 @@
     color: #555;
 }
 
-/* 소유자 섹션 */
+
 #owner-info {
     margin-top: 20px;
     display: flex;

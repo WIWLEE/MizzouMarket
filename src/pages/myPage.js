@@ -27,12 +27,12 @@ const MyPage = () => {
     const [error, setError] = useState(null);
  
     useEffect(() => {
-      // API로부터 데이터 가져오기
+
       axios
          .get("http://localhost:3001/api/users/currentUser")
          .then((response) => {
           const data = response.data[0];
-          // alert(JSON.stringify(response.data[0], null, 2));
+
           setUser({
             Profile_image: data.Profile_image,
             Nickname: data.Nickname,
@@ -53,7 +53,7 @@ const MyPage = () => {
  }
 
  if (error) {
-    return <p>{error}</p>; // 에러 발생 시 메시지
+    return <p>{error}</p>; 
  }
 
 

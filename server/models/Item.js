@@ -31,12 +31,28 @@ const Item = {
 
      getAItemById : function(itemId, callback){
       const query = `
-      SELECT ITEM.Description, ITEM.Price, ITEM.Item_image, ITEM.Date_registered, USER.Nickname, USER.User_Id, USER.Profile_image
+      SELECT ITEM.Description, ITEM.Price, ITEM.Item_image, ITEM.Date_registered, ITEM.Is_sold, USER.Nickname, USER.User_Id, USER.Profile_image
       FROM ITEM
       JOIN USER
       ON ITEM.Owner_id = USER.User_id
-      WHERE ITEM.Item_id= ? AND Item.Is_sold=0
-      ORDER BY Item.Item_id DESC;`
+      WHERE ITEM.Item_id= ? AND Item.Is_sold=0;`
+         db.query(query, [itemId], function(err, results) {
+            console.log(results);
+            if (err) {
+               callback(err, null);
+            } else {
+               callback(null, results);
+            }
+         });
+     },
+
+     getAItemByIdIncludingNonSold : function(itemId, callback){
+      const query = `
+      SELECT ITEM.Description, ITEM.Price, ITEM.Item_image, ITEM.Date_registered, ITEM.Is_sold, USER.Nickname, USER.User_Id, USER.Profile_image
+      FROM ITEM
+      JOIN USER
+      ON ITEM.Owner_id = USER.User_id
+      WHERE ITEM.Item_id= ?;`
          db.query(query, [itemId], function(err, results) {
             if (err) {
                callback(err, null);
@@ -55,18 +71,17 @@ const Item = {
           INSERT INTO Item_category (Item_id, Category)
           VALUES (?, ?)
       `;
-  
-      // 첫 번째 쿼리 실행 (Item 테이블에 데이터 삽입)
+
       db.query(query1, [item.Price, item.Description, item.Date_registered, item.Owner_id, item.Is_sold, item.Item_image], function(err, result) {
          if (err) {
-            callback(err, null); // 오류가 발생하면 롤백
+            callback(err, null); 
          }
 
-         // 삽입된 Item의 ID 가져오기 (자동 생성된 ID)
+ 
          const itemId = result.insertId;
 
          item.Category.map(category => {
-         // 두 번째 쿼리 실행 (Item_category 테이블에 데이터 삽입)
+
          db.query(query2, [itemId, category], function(err, result) {
             if (err) {
                return callback(err, null); 

@@ -26,6 +26,18 @@ router.get("/", function(req, res) {
    });
 });
 
+router.get("/:id", function(req, res) { 
+  
+   const chatRoomId = req.params;
+   ChatRoom.getChatroomById(chatRoomId, function(err, newChatRooms) {
+      if (err) {
+         res.status(400).send(err);
+      } else {
+         res.json(newChatRooms);
+      }
+   });
+});
+
 
 
 module.exports = router;
